@@ -1,0 +1,2 @@
+camisa azul;45;100
+camisa preta;89;250
