@@ -7,8 +7,24 @@ using System.Text;
 class MainClass {
    
   public static void Main (string[] args) {
+
+    Loja loja = new Loja();
+
+    loja.MostrarProduto();
   
-   Loja loja = new Loja();
-   loja.ComprarProduto();
+    Console.WriteLine("Buscar o codigo do produto:");
+    int id  = int.Parse(Console.ReadLine());
+
+    
+
+    loja.BuscarPorID(id);
+
+    Console.WriteLine("Digite a quantidade que você quer comprar: ");
+    int quantidade = int.Parse(Console.ReadLine());
+
+    loja.ComprarProduto(id,quantidade);
+
   }
+
+
 }
