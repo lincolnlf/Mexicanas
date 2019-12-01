@@ -51,6 +51,23 @@ public class Loja{
 
     }
   }
+
+  public void SalvarTxt(){
+      
+    List <string> ListaProArquivo = new List<string>();
+
+    foreach (Produto linha in produtos){
+        ListaProArquivo.Add(linha.nomeProduto + ";" +linha.valor + ";" + linha.getQuantidade() + ";" + linha.getId());
+    }
+
+    File.WriteAllLines("produtoparavenda.txt",ListaProArquivo);
+    
+    
+  }
+
+    
+
+  
  
 
 
