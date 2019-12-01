@@ -1,11 +1,23 @@
 class Produto{
 
-  public int id{get;set;}
+  private int id;
   public string nomeProduto{get;set;}
   public float  valor{get;set;}
-  public int  quantidade{get;set;}
+  private  int  quantidade{get;set;}
 
-   public Produto(){
+
+  public int getId(){
+    return id;
+  }
+
+  public int getQuantidade(){
+    return quantidade;
+  }
+
+  public void setQuantidade(int qtd){
+    quantidade = qtd;
+  }
+  public Produto(){
    
     nomeProduto = "Nome";
     valor = 0;
@@ -23,7 +35,7 @@ class Produto{
   }
 
   public override string ToString(){
-    return  "\nNome do  Produto: " + nomeProduto + "\nValor de cada Produto: " + valor + "\nQuantidade de Produto: " + quantidade +"Codigo do Produto:"+ id;
+    return  "\nNome do  Produto: " + nomeProduto + "\nValor de cada Produto: " + valor + "\nQuantidade de Produto: " + quantidade +"\nCodigo do Produto:"+ id;
   }
 
   public string prepararArquivo(){

@@ -6,31 +6,53 @@ using System.Text;
 
 public class Loja{
    
-    List<Produto> produtos = new List<Produto>();
-    
-    public void comprarumproduto(int id){
-        
-    }
-
-    public void ComprarProduto(){
-
-      string[] linhas = File.ReadAllLines("produtoparavenda.txt");
+  List<Produto> produtos = new List<Produto>();
+  
+  public void comprarumproduto(int id){
       
-      foreach(string linha in linhas){
-        string[] dados = linha.Split(";");
-        Produto p = new Produto(dados[0], float.Parse(dados[1]), Int16.Parse(dados[2]),Int16.Parse(dados[3]));
-        produtos.Add(p);
+  }
+
+  private void CarregarProduto(){
+
+    string[] linhas = File.ReadAllLines("produtoparavenda.txt");
+    
+    foreach(string linha in linhas){
+      string[] dados = linha.Split(";");
+      Produto p = new Produto(dados[0], float.Parse(dados[1]), Int16.Parse(dados[2]),Int16.Parse(dados[3]));
+      produtos.Add(p);
+      
+    }
+    
+  }
+
+  public void MostrarProduto(){
+    CarregarProduto();
+    foreach(Produto p in produtos){
+      Console.WriteLine(p.ToString());
+    }
+  }
+
+  public void BuscarPorID(int id ){
+     foreach(Produto p in produtos){
+      if ( id == p.getId() ){
+        Console.WriteLine(p.ToString());
         
       }
-      
-    }
 
-    public void MostrarNaLista(){     
-    }
+    } 
+  }
 
+  public void ComprarProduto( int id  ,int quantidade){
     
+    foreach(Produto p in produtos){
+      if ( id == p.getId()){
+          p.setQuantidade(p.getQuantidade()-quantidade);        Console.WriteLine(p.ToString());
+      }
 
     }
+  }
+ 
 
 
+}
 
