@@ -8,9 +8,7 @@ class MainClass {
    
   public static void Main (string[] args) {
   
-   Loja t = new Loja();
-
-   t.ComprarProduto();
-   t.MostrarProduto();
+   Loja loja = new Loja();
+   loja.ComprarProduto();
   }
 }
