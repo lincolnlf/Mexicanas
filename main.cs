@@ -27,23 +27,20 @@ class MainClass {
     string  senha  = (Console.ReadLine());
 
     Console.WriteLine("Digite sua senha para cadastrar:");
-    string  cpf  = (Console.ReadLine());
+    string  cnpj  = (Console.ReadLine());
 
     
-    Fisico usuario = new Fisico(nome,email,cep,senha,cpf);
+    Juridico usuario = new Juridico(nome,email,cep,senha,cnpj);
 
-    usuario.CadastroUsuario(nome, email,cep,senha,cpf);
+    usuario.CadastroUsuarioJuridico(nome, email,cep,senha,cnpj);
     
 
-    
-
-   
 
     }
 
     if(opcao == "2"){
 
-    Fisico usuario = new Fisico();
+    Juridico usuario = new Juridico();
 
     Loja loja = new Loja();
 
@@ -78,26 +75,13 @@ class MainClass {
 
       loja.ValorCompra(id,quantidade);
 
-     
-
-
       loja.SalvarTxt();
 
      }
 
-
     
-    }
-
-
-
-
-
-
-
-    
-
-    
+    }  
+   
 
   }
 
