@@ -8,6 +8,7 @@ class MainClass {
 
     Console.WriteLine("Digite a opção 1 para cadastrar\n digite a opção 2 para entrar no sistema:");
     string opcao  = (Console.ReadLine());
+    
 
     if (opcao == "1"){
 
@@ -17,6 +18,7 @@ class MainClass {
 
     Console.WriteLine("Digite seu email para cadastro:");
     string  email = (Console.ReadLine());
+   
   
     Console.WriteLine("Digite seu cep:");
     string  cep = (Console.ReadLine());
@@ -24,16 +26,24 @@ class MainClass {
     Console.WriteLine("Digite sua senha para cadastrar:");
     string  senha  = (Console.ReadLine());
 
-    
-    Usuario usuario = new Usuario(nome,email,cep,senha);
+    Console.WriteLine("Digite sua senha para cadastrar:");
+    string  cpf  = (Console.ReadLine());
 
-    usuario.CadastroUsuario(nome, email,cep,senha);
+    
+    Fisico usuario = new Fisico(nome,email,cep,senha,cpf);
+
+    usuario.CadastroUsuario(nome, email,cep,senha,cpf);
+    
+
+    
+
+   
 
     }
 
     if(opcao == "2"){
 
-    Usuario usuario = new Usuario();
+    Fisico usuario = new Fisico();
 
     Loja loja = new Loja();
 
@@ -45,24 +55,37 @@ class MainClass {
     string  senha  = (Console.ReadLine());
 
      if(usuario.Login( email,senha)){
+    
+      
+      loja.MostrarProduto();
       Console.WriteLine("você pode fazer a compra");
 
-      loja.MostrarProduto();
       
 
       Console.WriteLine("Digite o id do produto:");
       int  id  =int.Parse(Console.ReadLine());
 
       Console.WriteLine("Digite a quantidade que você quer comprar:");
-      int  quantidade  =int.Parse(Console.ReadLine());
+      
+      int  quantidade  =  int.Parse(Console.ReadLine());
+
+      
+
 
       loja.BuscarPorID(id );
 
       loja.ComprarProduto(id,quantidade);
 
+      loja.ValorCompra(id,quantidade);
+
+     
+
+
       loja.SalvarTxt();
 
      }
+
+
     
     }
 
