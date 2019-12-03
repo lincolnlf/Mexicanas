@@ -35,7 +35,7 @@ public class  Fisico : Usuario{
     int id = qtdLinhas();
     if(VerificarCadastro(email)){
  
-    StreamWriter streamWriter = File.AppendText("CadastroUsuario.txt");
+    StreamWriter streamWriter = File.AppendText("PessoaFisica.txt");
     streamWriter.WriteLine(n +";" + e  + ";" + id + ';' + cp +';'+s +';'+cf );
     streamWriter.Close();
     }
@@ -50,7 +50,7 @@ public class  Fisico : Usuario{
     
     string[] linhas = File.ReadAllLines
     
-    ("CadastroUsuario.txt");
+    ("PessoaFisica.txt");
       
 
     usuarios.Clear();
@@ -67,7 +67,7 @@ public class  Fisico : Usuario{
   } 
 
   public static int qtdLinhas(){
-    FileStream  leiturarqvoluntario= new FileStream("CadastroUsuario.txt",FileMode.Open,FileAccess.Read);
+    FileStream  leiturarqvoluntario= new FileStream("PessoaFisica.txt",FileMode.Open,FileAccess.Read);
     StreamReader lerinfobasic =new StreamReader(leiturarqvoluntario,Encoding.UTF8);
     int id = 1;
     while(!lerinfobasic.EndOfStream){

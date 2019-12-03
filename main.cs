@@ -38,9 +38,41 @@ class MainClass {
 
     }
 
+    
+
+    if (opcao == "3"){
+
+    
+    Console.WriteLine("Digite seu nome para cadastro:");
+    string nome  = (Console.ReadLine());
+
+    Console.WriteLine("Digite seu email para cadastro:");
+    string  email = (Console.ReadLine());
+   
+  
+    Console.WriteLine("Digite seu cep:");
+    string  cep = (Console.ReadLine());
+
+    Console.WriteLine("Digite sua senha para cadastrar:");
+    string  senha  = (Console.ReadLine());
+
+    Console.WriteLine("Digite sua senha para cadastrar:");
+    string  cpf  = (Console.ReadLine());
+
+    
+    Fisico usuario = new Fisico(nome,email,cep,senha,cpf);
+
+    usuario.CadastroUsuario(nome, email,cep,senha,cpf);
+    
+
+
+    }
+
     if(opcao == "2"){
 
     Juridico usuario = new Juridico();
+
+    Fisico usuarioFisico = new Fisico();
 
     Loja loja = new Loja();
 
@@ -51,7 +83,7 @@ class MainClass {
     Console.WriteLine("Digite sua senha:");
     string  senha  = (Console.ReadLine());
 
-     if(usuario.Login( email,senha)){
+     if(usuarioFisico.Login( email,senha)  || usuario.LoginJ(email,senha)){
     
       
       loja.MostrarProduto();

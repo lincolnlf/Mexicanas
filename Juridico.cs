@@ -99,7 +99,7 @@ public class Juridico:Usuario{
 
 
 
-  public bool Login( string email, string senha){
+  public bool LoginJ( string email, string senha){
 
       
 

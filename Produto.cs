@@ -1,14 +1,23 @@
 class Produto{
 
   private int id;
-  public string nomeProduto{get;set;}
-  public float  valor{get;set;}
-  private  int  quantidade{get;set;}
+  private string nomeProduto;
+  private float  valor;
+  private  int  quantidade;
 
 
   public int getId(){
     return id;
   }
+
+  public string  getNome(){
+    return nomeProduto;
+  }
+
+  public  float getValor(){
+    return valor;
+  }
+
 
   public int getQuantidade(){
     return quantidade;
@@ -16,6 +25,12 @@ class Produto{
 
   public void setQuantidade(int qtd){
     quantidade = qtd;
+  }
+  public void setValor(float v){
+    valor = v;
+  }
+  public void setNome(string n){
+    nomeProduto = n;
   }
   public Produto(){
    
@@ -41,6 +56,8 @@ class Produto{
   public string prepararArquivo(){
     return  ";" + nomeProduto + ";" + valor + ";" + quantidade +  ";" + id  ;
   }
+  
+  
 
  
 
