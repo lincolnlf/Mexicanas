@@ -71,8 +71,11 @@ class MainClass {
     if(opcao == "2"){
 
     Juridico usuario = new Juridico();
-
     Fisico usuarioFisico = new Fisico();
+
+    Historico historico = new Historico();
+
+    
 
     Loja loja = new Loja();
 
@@ -98,9 +101,10 @@ class MainClass {
       
       int  quantidade  =  int.Parse(Console.ReadLine());
 
-      
+      historico.ColocandoNoHistorico(email,quantidade,id);
 
-
+       
+  
       loja.BuscarPorID(id );
 
       loja.ComprarProduto(id,quantidade);
@@ -110,6 +114,18 @@ class MainClass {
       loja.SalvarTxt();
 
      }
+       
+     }
+
+     if(opcao == "4"){
+
+      Historico historicos = new Historico();
+      Fisico usuarioFisicov = new Fisico();
+
+      Console.WriteLine("Digite o email para verificar o historia:"); 
+      string  emailv = (Console.ReadLine());
+
+      historicos.MostrarHistorico(emailv);
 
     
     }  
