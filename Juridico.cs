@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 
 
-//juridico herdando usuário
+
 public class Juridico:Usuario{
 
   List<Usuario> usuarios = new List<Usuario>();
@@ -32,7 +32,24 @@ public class Juridico:Usuario{
    public void setCNPJ(string cn){
       cnpj= cn;
    }
-// cadastro de usuário juridico
+
+
+   public bool  VerificarCadastro(string email){
+    
+    AtualizarLista();
+    
+    foreach(Usuario  u in usuarios){
+      if ( email == u.getEmail() ){
+
+        return false;
+      }
+
+    } 
+
+    return true;
+
+  }
+
     public  void CadastroUsuarioJuridico(string n, string e ,string  cp, string  s, string cn ){
     int id = qtdLinhas();
     if(VerificarCadastro(email)){
@@ -47,7 +64,7 @@ public class Juridico:Usuario{
         
     
   } 
-// atualização de lista
+
   private void AtualizarLista(){
     
     string[] linhas = File.ReadAllLines
@@ -67,7 +84,7 @@ public class Juridico:Usuario{
       
     }
   } 
-// leitura de arquivo voluntário
+
   public static int qtdLinhas(){
     FileStream  leiturarqvoluntario= new FileStream("PessoaJuridica.txt",FileMode.Open,FileAccess.Read);
     StreamReader lerinfobasic =new StreamReader(leiturarqvoluntario,Encoding.UTF8);
@@ -80,22 +97,8 @@ public class Juridico:Usuario{
     leiturarqvoluntario.Close();
     return id;
   }
- //verificação de cadastro 
-  public bool  VerificarCadastro(string email){
-    
-    AtualizarLista();
-    
-    foreach(Usuario  u in usuarios){
-      if ( email == u.getEmail() ){
-
-        return false;
-      }
-
-    } 
-
-    return true;
-
-  }
+  
+  
 
 
 

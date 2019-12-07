@@ -6,41 +6,42 @@ class MainClass {
    
   public static void Main (string[] args) {
 
-    Console.WriteLine("Digite a opção 1 para cadastrar\n digite a opção 2 para entrar no sistema:");
-    string opcao  = (Console.ReadLine());
-    
+  Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-    if (opcao == "1"){
-
-    
-    Console.WriteLine("Digite seu nome para cadastro:");
-    string nome  = (Console.ReadLine());
-
-    Console.WriteLine("Digite seu email para cadastro:");
-    string  email = (Console.ReadLine());
-   
   
-    Console.WriteLine("Digite seu cep:");
-    string  cep = (Console.ReadLine());
+  Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("========================================================  MEXICANAS  ==========================================================");
 
-    Console.WriteLine("Digite sua senha para cadastrar:");
-    string  senha  = (Console.ReadLine());
+  Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-    Console.WriteLine("Digite sua senha para cadastrar:");
-    string  cnpj  = (Console.ReadLine());
+  Console.ForegroundColor = ConsoleColor.White; 
 
-    
-    Juridico usuario = new Juridico(nome,email,cep,senha,cnpj);
-
-    usuario.CadastroUsuarioJuridico(nome, email,cep,senha,cnpj);
-    
+  Console.WriteLine();
 
 
-    }
+  Console.WriteLine(" Para entrar no nosso sistema: \n Informe se você é uma pessoa fisica ou uma pessoa juridica:");
 
-    
+  Console.WriteLine();
 
-    if (opcao == "3"){
+  Console.WriteLine(" Digite 1 para Pessoa fisica\n =============================\n Digite 2 para Pessoa Juridico");
+  string resp  = (Console.ReadLine());
+
+
+  Console.WriteLine();
+
+   int opcao = 0;
+  
+
+  while(resp == "1" || opcao == 1){
+
+    Console.WriteLine("Digite 1 para fazer um cadastro no nosso Sistema:");
+    opcao = int.Parse(Console.ReadLine());
+
+
+     
+    if (opcao == 1){
 
     
     Console.WriteLine("Digite seu nome para cadastro:");
@@ -60,78 +61,12 @@ class MainClass {
     string  cpf  = (Console.ReadLine());
 
     
-    Fisico usuario = new Fisico(nome,email,cep,senha,cpf);
+    Fisico  usuario = new Fisico(nome,email,cep,senha,cpf);
 
-    usuario.CadastroUsuario(nome, email,cep,senha,cpf);
-    
-
-
+    usuario.CadastroUsuarioFisico(nome, email,cep,senha,cpf);
+    Console.ForegroundColor = ConsoleColor.White; 
+    break;
+      }
     }
-
-    if(opcao == "2"){
-
-    Juridico usuario = new Juridico();
-    Fisico usuarioFisico = new Fisico();
-
-    Historico historico = new Historico();
-
-    
-
-    Loja loja = new Loja();
-
-
-    Console.WriteLine("Digite seu email  de cadastro:");
-    string  email = (Console.ReadLine());
-
-    Console.WriteLine("Digite sua senha:");
-    string  senha  = (Console.ReadLine());
-
-     if(usuarioFisico.Login( email,senha)  || usuario.LoginJ(email,senha)){
-    
-      
-      loja.MostrarProduto();
-      Console.WriteLine("você pode fazer a compra");
-
-      
-
-      Console.WriteLine("Digite o id do produto:");
-      int  id  =int.Parse(Console.ReadLine());
-
-      Console.WriteLine("Digite a quantidade que você quer comprar:");
-      
-      int  quantidade  =  int.Parse(Console.ReadLine());
-
-      historico.ColocandoNoHistorico(email,quantidade,id);
-
-       
-  
-      loja.BuscarPorID(id );
-
-      loja.ComprarProduto(id,quantidade);
-
-      loja.ValorCompra(id,quantidade);
-
-      loja.SalvarTxt();
-
-     }
-       
-     }
-
-     if(opcao == "4"){
-
-      Historico historicos = new Historico();
-      Fisico usuarioFisicov = new Fisico();
-
-      Console.WriteLine("Digite o email para verificar o historia:"); 
-      string  emailv = (Console.ReadLine());
-
-      historicos.MostrarHistorico(emailv);
-
-    
-    }  
-   
-
-  }
-
-
+  }   
 }

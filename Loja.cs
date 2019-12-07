@@ -7,11 +7,9 @@ using System.Text;
 public class Loja{
    
   List<Produto> produtos = new List<Produto>();
- //compra de um produto 
-  public void comprarumproduto(int id){
-      
-  }
-//carregamento de um produto
+  
+
+
   private void CarregarProduto(){
 
     string[] linhas = File.ReadAllLines("produtoparavenda.txt");
@@ -24,14 +22,14 @@ public class Loja{
     }
     
   }
-//visualização do produto
+
   public void MostrarProduto(){
     CarregarProduto();
     foreach(Produto p in produtos){
       Console.WriteLine(p.ToString());
     }
   }
-// busca pelo id do usuario
+
   public void BuscarPorID(int id ){
      foreach(Produto p in produtos){
       if ( id == p.getId() ){
@@ -41,7 +39,7 @@ public class Loja{
 
     } 
   }
-//compra do produto
+
   public void ComprarProduto( int id  ,int quantidade){
     
     foreach(Produto p in produtos){
@@ -57,7 +55,7 @@ public class Loja{
     List <string> ListaProArquivo = new List<string>();
 
     foreach (Produto linha in produtos){
-        ListaProArquivo.Add(linha.nomeProduto + ";" +linha.valor + ";" + linha.getQuantidade() + ";" + linha.getId());
+        ListaProArquivo.Add(linha.getNome() + ";" +linha.getValor() + ";" + linha.getQuantidade() + ";" + linha.getId());
     }
 
     File.WriteAllLines("produtoparavenda.txt",ListaProArquivo);
@@ -65,6 +63,20 @@ public class Loja{
     
   }
 
+
+  public void ValorCompra( int id  ,int quantidade){
+     
+    foreach(Produto p in produtos){
+      if ( id == p.getId()){
+        float valorcompra =(quantidade*p.getValor());
+        Console.WriteLine(valorcompra);
+      }
+
+    }
+  }
+
+
+  
     
 
   

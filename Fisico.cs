@@ -7,10 +7,7 @@ public class  Fisico : Usuario{
 
   List<Usuario> usuarios = new List<Usuario>();
 
-  
-  
   private string cpf;
-
 
   public Fisico(){
     cpf = "CPF";
@@ -63,7 +60,7 @@ public class  Fisico : Usuario{
   }
 
 
- public  void CadastroUsuario(string n, string e ,string  cp, string  s, string cf ){
+ public  void CadastroUsuarioFisico(string n, string e ,string  cp, string  s, string cf ){
     int id = qtdLinhas();
     if(VerificarCadastro(email)){
  
@@ -72,7 +69,8 @@ public class  Fisico : Usuario{
     streamWriter.Close();
     }
     else{
-      Console.WriteLine("Esse email já foi cadastrado");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("Esse email já foi cadastrado!!!");
     }
         
     
