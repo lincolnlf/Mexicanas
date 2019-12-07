@@ -52,7 +52,7 @@ class Produto{
   public override string ToString(){
     return  "\nNome do  Produto: " + nomeProduto + "\nValor de cada Produto: " + valor + "\nQuantidade de Produto: " + quantidade +"\nCodigo do Produto:"+ id;
   }
-
+// preparo arquivo
   public string prepararArquivo(){
     return  ";" + nomeProduto + ";" + valor + ";" + quantidade +  ";" + id  ;
   }
