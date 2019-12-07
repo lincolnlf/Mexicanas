@@ -23,7 +23,7 @@ class Historico{
 
   List<Historico> historicos = new List<Historico>();
 
-
+// inserindo no histórico
   public  void ColocandoNoHistorico(string e, int q, int i ){
    
     StreamWriter streamWriter = File.AppendText("HistoricoUsuario.txt");
@@ -31,7 +31,7 @@ class Historico{
     streamWriter.Close();
 
   }
-   
+// atualização de histórico   
   private void AtualizarHistorico(){
     
     string[] linhas = File.ReadAllLines
@@ -51,7 +51,7 @@ class Historico{
       }
   } 
 
-
+//vizualização de histórico
   public void  MostrarHistorico(string email){
     
     AtualizarHistorico();
