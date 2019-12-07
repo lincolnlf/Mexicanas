@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-
+//todo processo do usuário
 public class Usuario{
 
   List<Usuario> usuarios = new List<Usuario>();
