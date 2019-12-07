@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-// Classe físico herda usuário
+
 public class  Fisico : Usuario{
 
   List<Usuario> usuarios = new List<Usuario>();
@@ -11,7 +11,7 @@ public class  Fisico : Usuario{
   
   private string cpf;
 
-// Construtores
+
   public Fisico(){
     cpf = "CPF";
    
@@ -32,7 +32,7 @@ public class  Fisico : Usuario{
       cpf = c;
 
    }
-// Verificação de cadastro de usuário
+
    public bool  VerificarCadastro(string email){
     
     AtualizarLista();
@@ -48,7 +48,7 @@ public class  Fisico : Usuario{
     return true;
 
   }
-  // Leitura de arquivo voluntário
+  
   public static int qtdLinhas(){
     FileStream  leiturarqvoluntario= new FileStream("PessoaFisica.txt",FileMode.Open,FileAccess.Read);
     StreamReader lerinfobasic =new StreamReader(leiturarqvoluntario,Encoding.UTF8);
@@ -62,7 +62,7 @@ public class  Fisico : Usuario{
     return id;
   }
 
-// cadastro de usuário
+
  public  void CadastroUsuario(string n, string e ,string  cp, string  s, string cf ){
     int id = qtdLinhas();
     if(VerificarCadastro(email)){
@@ -77,7 +77,7 @@ public class  Fisico : Usuario{
         
     
   } 
-// Atualização de lista
+
   private void AtualizarLista(){
     
     string[] linhas = File.ReadAllLines
@@ -98,7 +98,7 @@ public class  Fisico : Usuario{
       
     }
   } 
-// Sessão de login
+
   public bool Login( string email, string senha){
       
      AtualizarLista();
