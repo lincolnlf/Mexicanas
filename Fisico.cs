@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-//fisico herda usuário
+
 public class  Fisico : Usuario{
 
   List<Usuario> usuarios = new List<Usuario>();
@@ -32,7 +32,7 @@ public class  Fisico : Usuario{
       cpf = c;
 
    }
-// verificação de cadastro
+
    public bool  VerificarCadastro(string email){
     
     AtualizarLista();
@@ -48,7 +48,7 @@ public class  Fisico : Usuario{
     return true;
 
   }
-// leitura arquivo voluntário  
+  
   public static int qtdLinhas(){
     FileStream  leiturarqvoluntario= new FileStream("PessoaFisica.txt",FileMode.Open,FileAccess.Read);
     StreamReader lerinfobasic =new StreamReader(leiturarqvoluntario,Encoding.UTF8);
@@ -62,7 +62,7 @@ public class  Fisico : Usuario{
     return id;
   }
 
-// casdatro de usuário
+
  public  void CadastroUsuario(string n, string e ,string  cp, string  s, string cf ){
     int id = qtdLinhas();
     if(VerificarCadastro(email)){
@@ -77,7 +77,7 @@ public class  Fisico : Usuario{
         
     
   } 
-// atualização de lista
+
   private void AtualizarLista(){
     
     string[] linhas = File.ReadAllLines
