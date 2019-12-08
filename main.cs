@@ -34,9 +34,9 @@ class MainClass {
    int opcao = 0;
   
 
-  while(resp == "1" || opcao == 1){
+  while(resp == "1" || opcao == 1 || opcao == 2){
 
-    Console.WriteLine("Digite 1 para fazer um cadastro no nosso Sistema:");
+    Console.WriteLine("Digite 1 para fazer um cadastro no nosso Sistema:\nDigite 2 se você já é cadastrado:");
     opcao = int.Parse(Console.ReadLine());
 
 
@@ -67,6 +67,42 @@ class MainClass {
     Console.ForegroundColor = ConsoleColor.White; 
     break;
       }
+
+
+    if(opcao == 2){
+
+      Fisico  usuario = new Fisico();
+
+      Console.WriteLine("Digite seu email para cadastro:");
+      string  email = (Console.ReadLine());
+
+      Console.WriteLine("Digite seu email para cadastro:");
+      string  senha = (Console.ReadLine());
+
+      Console.WriteLine();
+
+      usuario.Login(email,senha); 
+
+      int opcaoUsuario = 0;
+
+      Console.WriteLine(" Vamos lá.\nDigite 1 para poder fazer uma compra\n Digite 2 para verficar seu historico de compra em nossa loja:");
+      opcaoUsuario = int.Parse(Console.ReadLine());
+
+      if(opcaoUsuario == 2){
+        HistoricoFisico historico = new HistoricoFisico();
+        Console.WriteLine("Esse é todo o seu historico em nossa loja");
+
+
+
+        historico.MostrarHistorico(email);
+      }
+
+
+    }
+    
+    
+     
+          
     }
   }   
 }
