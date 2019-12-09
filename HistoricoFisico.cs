@@ -62,12 +62,8 @@ class HistoricoFisico{
     
     foreach(HistoricoFisico   h in historicofisico){
       if ( email == h.email){
-        Console.WriteLine("A quantidade de produto"+h.quantidade);
-
-        Console.WriteLine(h.id);
-
-        Console.WriteLine(h.email);
-
+        Console.WriteLine("Você comprou: {0} produtos , com id{1}",h.id,h.quantidade);
+        
       }
 
     } 

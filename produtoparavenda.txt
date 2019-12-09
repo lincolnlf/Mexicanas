@@ -1,1 +1,1 @@
-camisa azul;34;12;2
+camisa azul;34;842;2

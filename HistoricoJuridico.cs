@@ -28,7 +28,7 @@ class HistoricoJuridico{
  
 
 
-  public  void ColocandoNoHistorico(string e, int q, int i ){
+  public  void ColocandoNoHistorico2(string e, int q, int i ){
    
     StreamWriter streamWriter = File.AppendText("HistoricoJuridico.txt");
     streamWriter.WriteLine(e+";" + q + ";" + i );
@@ -36,7 +36,7 @@ class HistoricoJuridico{
 
   }
    
-  private void AtualizarHistorico(){
+  private void AtualizarHistorico2(){
     
     string[] linhas = File.ReadAllLines
     
@@ -56,19 +56,15 @@ class HistoricoJuridico{
   } 
 
 
-  public void  MostrarHistorico(string email){
+  public void  MostrarHistorico2(string email){
     
-    AtualizarHistorico();
+    AtualizarHistorico2();
     
     foreach(HistoricoJuridico   h in historicojuridico){
       if ( email == h.email){
-        Console.WriteLine("A quantidade de produto"+h.quantidade);
-
-        Console.WriteLine(h.id);
-
-        Console.WriteLine(h.email);
-
+           Console.WriteLine("Você comprou: {0} produtos , com id{1}",h.id,h.quantidade);
         
+      }
     
       }
 
@@ -78,4 +74,3 @@ class HistoricoJuridico{
   
 
 
-}

@@ -2,11 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-//todo processo do usuário
+
 public class Usuario{
-
-  List<Usuario> usuarios = new List<Usuario>();
-
 
   protected  string email;
   protected string nome;
@@ -17,12 +14,10 @@ public class Usuario{
     return email;
   }
 
-
   public string getNome(){
     return nome;
   }
 
- 
   public void setEmail(string e){
     email = e;
   }
@@ -35,43 +30,32 @@ public class Usuario{
     return cep;
   }
 
- 
   public void setCep(string cp){
     cep = cp;
   }
 
-
   public string getSenha(){
     return senha;
   }
-
  
   public void setSenha(string s){
     senha = s;
   }
 
-
-
   public Usuario(){
+
     nome = "Nome";
     email = "Email";
     cep = "dfaf";
     senha = "9erwr3";
- 
   }
 
-   public Usuario( string n ,string e , string cp,string s){
+  public Usuario( string n ,string e , string cp,string s){
+    
     nome = n;
     email = e;
     cep = cp;
     senha = s;
-
   }
- 
-
-  
-
-
-  
 
 }

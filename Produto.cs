@@ -5,7 +5,6 @@ class Produto{
   private float  valor;
   private  int  quantidade;
 
-
   public int getId(){
     return id;
   }
@@ -18,7 +17,6 @@ class Produto{
     return valor;
   }
 
-
   public int getQuantidade(){
     return quantidade;
   }
@@ -26,14 +24,17 @@ class Produto{
   public void setQuantidade(int qtd){
     quantidade = qtd;
   }
+
   public void setValor(float v){
     valor = v;
   }
+
   public void setNome(string n){
     nomeProduto = n;
   }
+
   public Produto(){
-   
+
     nomeProduto = "Nome";
     valor = 0;
     quantidade = 0;
@@ -45,23 +46,15 @@ class Produto{
     nomeProduto = np;
     valor = v;
     quantidade = q;
-    id = i;
-   
+    id = i; 
   }
 
   public override string ToString(){
     return  "\nNome do  Produto: " + nomeProduto + "\nValor de cada Produto: " + valor + "\nQuantidade de Produto: " + quantidade +"\nCodigo do Produto:"+ id;
   }
-// preparo arquivo
+
   public string prepararArquivo(){
     return  ";" + nomeProduto + ";" + valor + ";" + quantidade +  ";" + id  ;
   }
   
-  
-
- 
-
-  
-
-
 }

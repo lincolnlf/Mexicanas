@@ -8,8 +8,6 @@ public class Loja{
    
   List<Produto> produtos = new List<Produto>();
   
-
-
   private void CarregarProduto(){
 
     string[] linhas = File.ReadAllLines("produtoparavenda.txt");
@@ -17,36 +15,40 @@ public class Loja{
     foreach(string linha in linhas){
       string[] dados = linha.Split(";");
       Produto p = new Produto(dados[0], float.Parse(dados[1]), Int16.Parse(dados[2]),Int16.Parse(dados[3]));
-      produtos.Add(p);
-      
-    }
-    
+      produtos.Add(p); 
+    }  
   }
 
   public void MostrarProduto(){
     CarregarProduto();
     foreach(Produto p in produtos){
+      Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine(p.ToString());
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("============================");
+      Console.ForegroundColor = ConsoleColor.White;
+
     }
   }
 
-  public void BuscarPorID(int id ){
+  public bool BuscarPorID(int id ){
      foreach(Produto p in produtos){
       if ( id == p.getId() ){
         Console.WriteLine(p.ToString());
-        
+        return true; 
       }
-
+        
     } 
+      return false;
   }
 
   public void ComprarProduto( int id  ,int quantidade){
     
     foreach(Produto p in produtos){
       if ( id == p.getId()){
-          p.setQuantidade(p.getQuantidade()-quantidade);        Console.WriteLine(p.ToString());
+        p.setQuantidade(p.getQuantidade()-quantidade);
+        SalvarTxt();
       }
-
     }
   }
 
@@ -58,11 +60,8 @@ public class Loja{
         ListaProArquivo.Add(linha.getNome() + ";" +linha.getValor() + ";" + linha.getQuantidade() + ";" + linha.getId());
     }
 
-    File.WriteAllLines("produtoparavenda.txt",ListaProArquivo);
-    
-    
+    File.WriteAllLines("produtoparavenda.txt",ListaProArquivo);  
   }
-
 
   public void ValorCompra( int id  ,int quantidade){
      
@@ -71,17 +70,8 @@ public class Loja{
         float valorcompra =(quantidade*p.getValor());
         Console.WriteLine(valorcompra);
       }
-
     }
   }
-
-
-  
-    
-
-  
- 
-
 
 }
 
